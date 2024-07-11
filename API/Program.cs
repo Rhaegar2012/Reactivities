@@ -11,7 +11,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<DataContext>(opt =>
 {
-    opt.UseSqlite(builder.Configuration.GetConnectionString("Default"));
+    opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
 var app = builder.Build();
@@ -28,4 +28,20 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+using var scope = app.Services.CreateScope();
+var services = scope.ServiceProvider;
+
+//database creation
+try
+{
+    var context = services.GetRequiredService<DataContext>();
+    context.Database.Migrate();
+    await Seed.SeedData(context);
+
+}
+catch (Exception ex)
+{
+   var logger = services.GetRequiredService<ILogger<Program>>();
+   logger.LogError(ex,"An error ocurred during migration");
+}
 app.Run();
