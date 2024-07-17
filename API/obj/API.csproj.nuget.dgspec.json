@@ -49,6 +49,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Mvc": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -58,6 +62,14 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
+            },
+            "System.Threading.Tasks": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            },
+            "System.Threading.Tasks.Extensions": {
+              "target": "Package",
+              "version": "[4.5.4, )"
             }
           },
           "imports": [
@@ -110,8 +122,8 @@
               "C:\\Users\\joseb\\Desktop\\Enduring Freedom\\Web_Mobile_Training_Projects\\ReactJS Reactivities App\\Reactivities\\Domain\\Domain.csproj": {
                 "projectPath": "C:\\Users\\joseb\\Desktop\\Enduring Freedom\\Web_Mobile_Training_Projects\\ReactJS Reactivities App\\Reactivities\\Domain\\Domain.csproj"
               },
-              "C:\\Users\\joseb\\Desktop\\Enduring Freedom\\Web_Mobile_Training_Projects\\ReactJS Reactivities App\\Reactivities\\Persistence\\Persistence.csproj": {
-                "projectPath": "C:\\Users\\joseb\\Desktop\\Enduring Freedom\\Web_Mobile_Training_Projects\\ReactJS Reactivities App\\Reactivities\\Persistence\\Persistence.csproj"
+              "c:\\Users\\joseb\\Desktop\\Enduring Freedom\\Web_Mobile_Training_Projects\\ReactJS Reactivities App\\Reactivities\\Persistence\\Persistence.csproj": {
+                "projectPath": "c:\\Users\\joseb\\Desktop\\Enduring Freedom\\Web_Mobile_Training_Projects\\ReactJS Reactivities App\\Reactivities\\Persistence\\Persistence.csproj"
               }
             }
           }
@@ -130,6 +142,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.3.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -210,14 +228,14 @@
         }
       }
     },
-    "C:\\Users\\joseb\\Desktop\\Enduring Freedom\\Web_Mobile_Training_Projects\\ReactJS Reactivities App\\Reactivities\\Persistence\\Persistence.csproj": {
+    "c:\\Users\\joseb\\Desktop\\Enduring Freedom\\Web_Mobile_Training_Projects\\ReactJS Reactivities App\\Reactivities\\Persistence\\Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\joseb\\Desktop\\Enduring Freedom\\Web_Mobile_Training_Projects\\ReactJS Reactivities App\\Reactivities\\Persistence\\Persistence.csproj",
+        "projectUniqueName": "c:\\Users\\joseb\\Desktop\\Enduring Freedom\\Web_Mobile_Training_Projects\\ReactJS Reactivities App\\Reactivities\\Persistence\\Persistence.csproj",
         "projectName": "Persistence",
-        "projectPath": "C:\\Users\\joseb\\Desktop\\Enduring Freedom\\Web_Mobile_Training_Projects\\ReactJS Reactivities App\\Reactivities\\Persistence\\Persistence.csproj",
+        "projectPath": "c:\\Users\\joseb\\Desktop\\Enduring Freedom\\Web_Mobile_Training_Projects\\ReactJS Reactivities App\\Reactivities\\Persistence\\Persistence.csproj",
         "packagesPath": "C:\\Users\\joseb\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\joseb\\Desktop\\Enduring Freedom\\Web_Mobile_Training_Projects\\ReactJS Reactivities App\\Reactivities\\Persistence\\obj\\",
+        "outputPath": "c:\\Users\\joseb\\Desktop\\Enduring Freedom\\Web_Mobile_Training_Projects\\ReactJS Reactivities App\\Reactivities\\Persistence\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\joseb\\AppData\\Roaming\\NuGet\\NuGet.Config",
