@@ -24,6 +24,8 @@ namespace Application.Activities
                 return await _context.Activities.ToListAsync();
             }
 
+            
+
         }
     }
 }
