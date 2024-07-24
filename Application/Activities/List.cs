@@ -21,7 +21,7 @@ namespace Application.Activities
             public Handler(DataContext context, ILogger<List> logger)
             {
                 _context = context;
-                _context = context;
+                _logger  = logger;
             }
             public async Task<List<Activity>> Handle(Query request, CancellationToken cancellationToken)
             {
