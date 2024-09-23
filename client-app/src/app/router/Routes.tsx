@@ -12,9 +12,9 @@ export const routes: RouteObject[]=[
         children:[
             {path:'', element:<HomePage/>},
             {path:'activities',element:<ActivityDashboard/>},
-            {path:'createActivity',element:<ActivityForm/>},
+            {path:'createActivity',element:<ActivityForm key='create'/>},
             {path:'activities/:id',element:<ActivityDetails/>},
-            {path:'manage/:id',element:<ActivityForm/>}
+            {path:'manage/:id',element:<ActivityForm key='manage'/>}
         ]
 
     }
