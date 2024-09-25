@@ -137,3 +137,6 @@ C:\Users\joseb\Desktop\Enduring Freedom\Web_Mobile_Training_Projects\ReactJS Rea
 C:\Users\joseb\Desktop\Enduring Freedom\Web_Mobile_Training_Projects\ReactJS Reactivities App\Reactivities\API\obj\Debug\net8.0\API.RazorAssemblyInfo.cs
 C:\Users\joseb\Desktop\Enduring Freedom\Web_Mobile_Training_Projects\ReactJS Reactivities App\Reactivities\API\bin\Debug\net8.0\AutoMapper.dll
 C:\Users\joseb\Desktop\Enduring Freedom\Web_Mobile_Training_Projects\ReactJS Reactivities App\Reactivities\API\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\joseb\Desktop\Enduring Freedom\Web_Mobile_Training_Projects\ReactJS Reactivities App\Reactivities\API\bin\Debug\net8.0\FluentValidation.dll
+C:\Users\joseb\Desktop\Enduring Freedom\Web_Mobile_Training_Projects\ReactJS Reactivities App\Reactivities\API\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
+C:\Users\joseb\Desktop\Enduring Freedom\Web_Mobile_Training_Projects\ReactJS Reactivities App\Reactivities\API\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll

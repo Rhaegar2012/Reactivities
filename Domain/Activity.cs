@@ -1,6 +1,7 @@
 
-
+using System;
 using System.Diagnostics.Contracts;
+using System.ComponentModel.DataAnnotations;
 
 namespace Domain
 {
