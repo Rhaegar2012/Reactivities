@@ -1,7 +1,9 @@
 using Persistence;
+using Domain;
 using API.Extensions;
 using Microsoft.EntityFrameworkCore;
 using API.Middleware;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddApplicationServices(builder.Configuration);
+builder.Services.AddIdentityServices(builder.Configuration);
 var app = builder.Build();
 app.UseMiddleware<ExceptionMiddleware>();
 
@@ -31,8 +34,9 @@ var services = scope.ServiceProvider;
 try
 {
     var context = services.GetRequiredService<DataContext>();
+    var userManager = services.GetRequiredService<UserManager<AppUser>>();
     context.Database.Migrate();
-    await Seed.SeedData(context);
+    await Seed.SeedData(context,userManager);
 
 }
 catch (Exception ex)
