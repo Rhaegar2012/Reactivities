@@ -3,9 +3,11 @@ using Application.Activities;
 using MediatR;
 using Domain;
 using System.Reflection.Metadata;
+using Microsoft.AspNetCore.Authorization;
 
 namespace API.Controllers
 {
+    [AllowAnonymous]
     public class ActivitiesController:BaseAPIController
     {
         
