@@ -8,6 +8,7 @@ import { ToastContainer } from 'react-toastify'
 import { useStore } from '../stores/store'
 import { useEffect } from 'react'
 import LoadingComponent from './LoadingComponents'
+import ModalContainer from '../common/modals/ModalContainer'
 
 
 
@@ -29,6 +30,7 @@ function App() {
   return (
     
     <div>
+      <ModalContainer/>
       <ToastContainer position='bottom-right' hideProgressBar theme='colored'/>
       {location.pathname==='/'?<HomePage/>:(
         <>
