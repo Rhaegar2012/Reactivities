@@ -9,39 +9,33 @@ using Microsoft.Extensions.Logging;
 using Persistence;
 using SQLitePCL;
 using Application.Core;
+using AutoMapper;
+using AutoMapper.QueryableExtensions;
 
 namespace Application.Activities
 {
     public class List
     {
-        public class Query: IRequest<Result<List<Activity>>>{}
-        public class Handler : IRequestHandler<Query, Result<List<Activity>>>
+        public class Query: IRequest<Result<List<ActivityDTO>>>{}
+        public class Handler : IRequestHandler<Query, Result<List<ActivityDTO>>>
         {
             private readonly DataContext _context;
             private readonly ILogger<List> _logger;
-            public Handler(DataContext context, ILogger<List> logger)
+            private readonly IMapper _mapper;
+            public Handler(DataContext context, ILogger<List> logger, IMapper mapper)
             {
                 _context = context;
                 _logger  = logger;
+                _mapper = mapper;
             }
-            public async Task<Result<List<Activity>>> Handle(Query request, CancellationToken cancellationToken)
+            public async Task<Result<List<ActivityDTO>>> Handle(Query request, CancellationToken cancellationToken)
             {
-                /*try
-                {
-                    for(var i=0;i<10;i++)
-                    {
-                        cancellationToken.ThrowIfCancellationRequested();
-                        await Task.Delay(1000,cancellationToken);
-                        _logger.LogInformation($"Task {i} has completed");
-                    }
-
-                }
-                catch(System.Exception)
-                {
-                    _logger.LogInformation("Task was cancelled");
-                }*/
                 
-                return Result<List<Activity>>.Success(await _context.Activities.ToListAsync());
+                var activities = await _context.Activities
+                                .ProjectTo<ActivityDTO>(_mapper.ConfigurationProvider)
+                                .ToListAsync(cancellationToken);
+
+                return Result<List<ActivityDTO>>.Success(activities);
             }
 
             

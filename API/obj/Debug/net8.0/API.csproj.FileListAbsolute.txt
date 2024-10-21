@@ -155,3 +155,5 @@ C:\Users\joseb\Desktop\Enduring Freedom\Web_Mobile_Training_Projects\ReactJS Rea
 C:\Users\joseb\Desktop\Enduring Freedom\Web_Mobile_Training_Projects\ReactJS Reactivities App\Reactivities\API\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\joseb\Desktop\Enduring Freedom\Web_Mobile_Training_Projects\ReactJS Reactivities App\Reactivities\API\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\joseb\Desktop\Enduring Freedom\Web_Mobile_Training_Projects\ReactJS Reactivities App\Reactivities\API\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\joseb\Desktop\Enduring Freedom\Web_Mobile_Training_Projects\ReactJS Reactivities App\Reactivities\API\bin\Debug\net8.0\Infrastructure.dll
+C:\Users\joseb\Desktop\Enduring Freedom\Web_Mobile_Training_Projects\ReactJS Reactivities App\Reactivities\API\bin\Debug\net8.0\Infrastructure.pdb
