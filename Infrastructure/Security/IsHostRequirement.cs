@@ -2,6 +2,7 @@ using System.Security.Claims;
 using System.Security.Cryptography.X509Certificates;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration.UserSecrets;
 using Persistence;
 namespace Infrastructure.Security
@@ -29,7 +30,7 @@ namespace Infrastructure.Security
                 return Task.CompletedTask;
             }
             var activityId= Guid.Parse(_httpContextAccesor.HttpContext?.Request.RouteValues.SingleOrDefault(x=>x.Key =="id").Value?.ToString());
-            var attendee = _dbContext.ActivityAttendees.FindAsync(userId,activityId).Result;
+            var attendee = _dbContext.ActivityAttendees.AsNoTracking().SingleOrDefaultAsync(x=>x.AppUserId ==userId && x.ActivityId ==activityId).Result;
             if(attendee == null)
             {
                 return Task.CompletedTask;

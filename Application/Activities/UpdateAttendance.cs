@@ -21,9 +21,10 @@ namespace Application.Activities
         {
             private readonly DataContext _context;
             private readonly IUserAccessor _userAccessor;
-            public Handler(DataContext context , IUserAccesor userAccessor)
+            public Handler(DataContext context , Application.Interfaces.IUserAccessor userAccessor)
             {
-
+                _context=context;
+                _userAccessor=userAccessor;
             }
             public async Task<Result<Unit>> Handle(Command request, CancellationToken cancellationToken)
             {
