@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -34,14 +35,12 @@ namespace Application.Photos
             public async Task<Result<Photo>> Handle(Command request, CancellationToken cancellationToken)
             {
                 var user = await _context.Users.Include(p=>p.Photos).FirstOrDefaultAsync(x=>x.UserName == _userAccessor.GetUserName());
-                Console.WriteLine($"My user {user?.UserName}");
                 if(user == null)
                 {
                     return null;
                 }
 
                 var photoUploadResult = await _photoAccessor.AddPhoto(request.File);
-                Console.WriteLine($)
                 var photo = new Photo
                 {
                     Url=photoUploadResult.Url,
@@ -56,7 +55,7 @@ namespace Application.Photos
                 var result = await _context.SaveChangesAsync()>0;
                 if(result)
                 {
-                    Result<Photo>.Success(photo);
+                   return Result<Photo>.Success(photo);
                 }
                 return Result<Photo>.Failure("Problem adding photo");
             }
