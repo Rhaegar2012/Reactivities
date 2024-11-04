@@ -1,3 +1,6 @@
+using System.Collections;
+using System.Collections.Generic;
+using Domain;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 
 namespace Application.Profiles
@@ -8,5 +11,6 @@ namespace Application.Profiles
         public string DisplayName {get;set;}
         public string Bio {get; set;}
         public string Image {get;set;}
+        public ICollection<Photo> Photos {get;set;}
     }
 }
