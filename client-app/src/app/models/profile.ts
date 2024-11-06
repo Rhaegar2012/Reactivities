@@ -9,6 +9,7 @@ export interface IProfile{
 }
 
 export class Profile implements IProfile{
+    photos: any;
     constructor(user: User){
         this.username = user.username;
         this.displayName = user.displayname;

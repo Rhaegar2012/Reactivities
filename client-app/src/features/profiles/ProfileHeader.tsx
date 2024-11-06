@@ -1,14 +1,21 @@
 import React from 'react';
 import {Grid,Item,Header,Segment,Statistic,Divider,Reveal,Button} from 'semantic-ui-react';
-export default function ProfileHeader(){
+import { Profile } from '../../app/models/profile';
+import { observer } from 'mobx-react-lite';
+
+interface Props{
+    profile:Profile;
+}
+
+export default observer(function ProfileHeader({profile}:Props){
     return(
         <Segment>
             <Grid>
                 <Grid.Column width={12}>
                     <Item.Group>
-                        <Item.Image avatar size="small" src={'/assets/user.png'}/>
+                        <Item.Image avatar size="small" src={profile.image||'/assets/user.png'}/>
                         <Item.Content verticalAlign ='middle'>
-                            <Header as='h1' content='Displayname'/>
+                            <Header as='h1' content={profile.displayName}/>
                         </Item.Content>
                     </Item.Group>
                 </Grid.Column>
@@ -27,4 +34,4 @@ export default function ProfileHeader(){
             </Grid>
         </Segment>
     )
-}
+})
