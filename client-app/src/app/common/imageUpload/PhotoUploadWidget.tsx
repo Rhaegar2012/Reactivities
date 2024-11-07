@@ -4,6 +4,7 @@ import PhotoWidgetDropzone from "./PhotoWidgetDropzone";
 
 
 export default function PhotoUploadWidget(){
+    
     return(
         <Grid>
             <Grid.Column width={4}>
