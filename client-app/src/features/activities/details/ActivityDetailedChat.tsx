@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { Formik ,Form, Field, FieldProps} from 'formik';
 import MyTextArea from '../../../app/common/form/MyTextArea';
 import * as Yup from 'yup';
+import { formatDistanceToNow } from 'date-fns';
 
 interface Props{
     activityId:string;
@@ -42,7 +43,7 @@ export default observer(function ActivityDetailedChat({activityId}:Props) {
                             <Comment.Content>
                                 <Comment.Author as={Link} to={`/profiles/${comment.username}`}>{comment.displayName}</Comment.Author>
                                 <Comment.Metadata>
-                                    <div>{comment.createdAt}</div>
+                                    <div>{formatDistanceToNow(comment.createdAt)}</div>
                                 </Comment.Metadata>
                                 <Comment.Text style={{whiteSpace:'pre-wrap'}}>{comment.body}</Comment.Text>
                             </Comment.Content>
