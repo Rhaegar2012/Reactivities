@@ -12,6 +12,8 @@ using Application.Core;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 
+
+
 namespace Application.Activities
 {
     public class List
@@ -22,17 +24,19 @@ namespace Application.Activities
             private readonly DataContext _context;
             private readonly ILogger<List> _logger;
             private readonly IMapper _mapper;
-            public Handler(DataContext context, ILogger<List> logger, IMapper mapper)
+            private readonly Application.Interfaces.IUserAccessor _userAccessor;
+            public Handler(DataContext context, ILogger<List> logger, IMapper mapper,Application.Interfaces.IUserAccessor userAccesor)
             {
                 _context = context;
                 _logger  = logger;
                 _mapper = mapper;
+                _userAccessor = userAccesor;
             }
             public async Task<Result<List<ActivityDTO>>> Handle(Query request, CancellationToken cancellationToken)
             {
                 
                 var activities = await _context.Activities
-                                .ProjectTo<ActivityDTO>(_mapper.ConfigurationProvider)
+                                .ProjectTo<ActivityDTO>(_mapper.ConfigurationProvider,new {currentUserName = _userAccessor.GetUserName() })
                                 .ToListAsync(cancellationToken);
 
                 return Result<List<ActivityDTO>>.Success(activities);

@@ -12,6 +12,8 @@ using Microsoft.AspNetCore.Mvc.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
 using Profile= Application.Profiles.Profile;
+using IUserAccesor = Application.Interfaces.IUserAccessor;
+using Application.Interfaces;
 
 namespace Application.Followers
 {
@@ -28,11 +30,13 @@ namespace Application.Followers
         {
             private readonly DataContext _context;
             private readonly IMapper _mapper;
+            private readonly IUserAccesor _userAccesor;
 
-            public Handler(DataContext context,IMapper mapper )
+            public Handler(DataContext context,IMapper mapper,IUserAccessor userAccessor)
             {
                 _mapper = mapper;
                 _context = context; 
+                _userAccesor = userAccessor;
 
             }
 
@@ -44,13 +48,13 @@ namespace Application.Followers
                     case "followers":
                         profiles = await _context.UserFollowings.Where(x=> x.Target.UserName == request.Username)
                                                                 .Select(u=>u.Observer)
-                                                                .ProjectTo<Profiles.Profile>(_mapper.ConfigurationProvider)
+                                                                .ProjectTo<Profiles.Profile>(_mapper.ConfigurationProvider, new {currentUserName = _userAccesor.GetUserName()})
                                                                 .ToListAsync();
                                                                 break;
                      case "following":
                         profiles = await _context.UserFollowings.Where(x=> x.Observer.UserName == request.Username)
                                                                 .Select(u=>u.Target)
-                                                                .ProjectTo<Profiles.Profile>(_mapper.ConfigurationProvider)
+                                                                .ProjectTo<Profiles.Profile>(_mapper.ConfigurationProvider, new {currentUserName=_userAccesor.GetUserName()})
                                                                 .ToListAsync();
                                                                 break;
                     

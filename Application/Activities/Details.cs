@@ -1,16 +1,12 @@
 using MediatR;
-using Domain;
 using System;
 using System.Threading.Tasks;
 using System.Threading;
 using Persistence;
-using SQLitePCL;
-using Application.Core;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using System.Linq;
 using Microsoft.EntityFrameworkCore;
-
+using IUserAccessor = Application.Interfaces.IUserAccessor;
 namespace Application.Activities
 {
     public class Details
@@ -22,15 +18,17 @@ namespace Application.Activities
             {
                 private readonly DataContext _context;
                 private readonly IMapper _mapper;
-                public Handler(DataContext context, IMapper mapper)
+                private readonly IUserAccessor _userAccessor;   
+                public Handler(DataContext context, IMapper mapper, IUserAccessor userAccessor)
                 {
                     _context = context;
                     _mapper = mapper;
+                    _userAccessor = userAccessor;
                 }
                 public async Task<Result<ActivityDTO>> Handle(Query request, CancellationToken cancellationToken)
                 {
                     var activity = await _context.Activities
-                                                 .ProjectTo<ActivityDTO>(_mapper.ConfigurationProvider)
+                                                 .ProjectTo<ActivityDTO>(_mapper.ConfigurationProvider, new{currentUserName=_userAccessor.GetUserName()})
                                                  .FirstOrDefaultAsync(x=>x.Id==request.Id);
                     return Result<ActivityDTO>.Success(activity);
                 }
