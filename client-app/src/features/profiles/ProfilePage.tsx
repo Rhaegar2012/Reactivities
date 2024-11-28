@@ -14,6 +14,9 @@ export default observer(function ProfilePage(){
 
     useEffect(()=>{
        if(username) loadProfile(username);
+       return ()=>{
+        setActiveTab(0);
+       }
     },[loadProfile,username]);
 
     if(loadingProfile) return <LoadingComponent content ='Loading profile...'/>
@@ -31,3 +34,7 @@ export default observer(function ProfilePage(){
         </Grid>
     )
 })
+
+function setActiveTab(arg0: number) {
+    throw new Error("Function not implemented.")
+}

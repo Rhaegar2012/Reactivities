@@ -6,7 +6,7 @@ import ProfileCard from './ProfileCard';
 
 export default observer(function ProfileFollowings(){
     const {profileStore} =useStore();
-    const {profile,followings,loadFollowings,loadingFollowings} =profileStore;
+    const {profile,followings,loadFollowings,loadingFollowings,activeTab} =profileStore;
 
     useEffect(()=>{
         loadFollowings('following');
@@ -16,7 +16,9 @@ export default observer(function ProfileFollowings(){
         <Tab loading={loadingFollowings}>
             <Grid>
                 <Grid.Column width={16}>
-                    <Header floated='left' icon='user'contet={`People following ${profile?.displayName}`}/>
+                    <Header floated='left' 
+                            icon='user'
+                            content={activeTab ===3?`People following ${profile?.displayName}`:`Peole ${profile?.displayName} is following`}/>
                 </Grid.Column>
                 <Grid.Column width ={16}>
                     <Card.Group itemsPerRow={4}>
