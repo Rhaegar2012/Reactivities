@@ -21,8 +21,6 @@ namespace Application.Core
             PageSize =pageSize;
             TotalCount=count;
             AddRange(items);
-            
-            
         }
 
         public static async Task<PagedList<T>> CreateAsync(IQueryable<T> source,int pageNumber,int pageSize)

@@ -4,6 +4,7 @@ using MediatR;
 using Domain;
 using System.Reflection.Metadata;
 using Microsoft.AspNetCore.Authorization;
+using Application.Core;
 
 namespace API.Controllers
 {
@@ -12,9 +13,9 @@ namespace API.Controllers
     {
         
         [HttpGet]
-        public async Task<IActionResult> GetActivities(CancellationToken ct)
+        public async Task<IActionResult> GetActivities([FromQuery]PagingParams param)
         {
-            return HandleResult(await Mediator.Send(new List.Query(),ct));
+            return HandlePagedResult(await Mediator.Send(new List.Query{Params=param}));
         }
 
         [HttpGet("{id}")]
