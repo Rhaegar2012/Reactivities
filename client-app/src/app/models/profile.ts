@@ -1,3 +1,4 @@
+import { StrictSegmentInlineProps } from 'semantic-ui-react';
 import {User} from './user';
 
 export interface IProfile{
@@ -33,4 +34,11 @@ export interface Photo{
     url:string;
     isMain:boolean;
     photos?:Photo[]
+}
+
+export interface UserActivity{
+    id:string;
+    title:string;
+    category:string;
+    date:Date;
 }
