@@ -3,7 +3,7 @@ import NavBar from './NavBar'
 import HomePage from '../../features/home/HomePage'
 import {Container} from "semantic-ui-react"
 import {observer} from 'mobx-react-lite'
-import { Outlet,useLocation } from 'react-router-dom'
+import { Outlet,ScrollRestoration,useLocation } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import { useStore } from '../stores/store'
 import { useEffect } from 'react'
@@ -30,6 +30,7 @@ function App() {
   return (
     
     <div>
+      <ScrollRestoration/>
       <ModalContainer/>
       <ToastContainer position='bottom-right' hideProgressBar theme='colored'/>
       {location.pathname==='/'?<HomePage/>:(
