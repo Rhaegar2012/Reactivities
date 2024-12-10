@@ -1,6 +1,6 @@
 import { observer } from "mobx-react-lite";
 import React, { SyntheticEvent, useState } from "react";
-import {Card,Header,Tab,Image, Grid, Button, ButtonGroup} from 'semantic-ui-react';
+import {Card,Header,Tab,Image, Grid, Button} from 'semantic-ui-react';
 import { Photo, Profile } from "../../app/models/profile";
 import { useStore } from "../../app/stores/store";
 import PhotoUploadWidget from "../../app/common/imageUpload/PhotoUploadWidget";
@@ -66,6 +66,7 @@ export default observer( function ProfilePhotos({profile}:Props){
 
 })
 
-function deletePhoto(photo: Photo) {
-    throw new Error("Function not implemented.");
+function deletePhoto(photo:Photo) {
+    console.log(photo);
+    throw new Error("Function not implemented" );
 }

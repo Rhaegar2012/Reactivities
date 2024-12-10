@@ -1,6 +1,7 @@
-import React, { useState,useEffect } from "react";
+//import React, 
+import { useState,useEffect } from "react";
 import { Grid, Header,Button } from "semantic-ui-react";
-import {Cropper} from 'react-cropper'
+//import {Cropper} from 'react-cropper'
 import PhotoWidgetDropzone from "./PhotoWidgetDropzone";
 import PhotoWidgetCropper from "./PhotoWidgetCropper";
 

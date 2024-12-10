@@ -1,8 +1,8 @@
 
-import {Button, Grid, Loader} from 'semantic-ui-react';
+import { Grid, Loader} from 'semantic-ui-react';
 import ActivityList  from './ActivityList';
 import ActivityFilters from './ActivityFilters';
-import LoadingComponent from '../../../app/layout/LoadingComponents'
+//import LoadingComponent from '../../../app/layout/LoadingComponents'
 import {useStore} from '../../../app/stores/store'
 import {observer} from 'mobx-react-lite';
 import { useEffect, useState } from 'react';

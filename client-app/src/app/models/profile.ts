@@ -1,4 +1,4 @@
-import { StrictSegmentInlineProps } from 'semantic-ui-react';
+//import { StrictSegmentInlineProps } from 'semantic-ui-react';
 import {User} from './user';
 
 export interface IProfile{

@@ -1,12 +1,12 @@
 import LoadingComponent from '../../../app/layout/LoadingComponents';
-import {useState,useEffect,ChangeEvent} from 'react';
-import {Segment,Button, FormField, Label,Header} from 'semantic-ui-react';
+import {useState,useEffect} from 'react';
+import {Segment,Button,Header} from 'semantic-ui-react';
 import {useStore} from '../../../app/stores/store';
-import { Activity, ActivityFormValues } from '../../../app/models/activity';
+import {ActivityFormValues } from '../../../app/models/activity';
 import {observer} from 'mobx-react-lite';
 import { useNavigate, useParams,Link } from 'react-router-dom';
 import {v4 as uuid} from 'uuid';
-import { Formik,Form,Field, ErrorMessage } from 'formik';
+import { Formik,Form} from 'formik';
 import * as Yup from 'yup';
 import MyTextInput from '../../../app/common/form/MyTextInput';
 import MyTextArea from '../../../app/common/form/MyTextArea';
@@ -20,7 +20,7 @@ import MyDateInput from '../../../app/common/form/MyDateInput';
 export default observer (function ActivityForm(){
 
     const {activityStore} = useStore();
-    const {selectedActivity,createActivity,updateActivity,loading,loadActivities,loadingInitial,loadActivity}=activityStore;
+    const {createActivity,updateActivity,loadingInitial,loadActivity}=activityStore;
     const {id} = useParams();
     const navigate = useNavigate();
     const [activity,setActivity] = useState<ActivityFormValues>(new ActivityFormValues());

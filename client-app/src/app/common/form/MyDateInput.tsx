@@ -1,8 +1,8 @@
-import React from 'react';
+//import React from 'react';
 import { Form ,Label} from 'semantic-ui-react';
 import { useField } from 'formik';
 import 'react-datepicker/dist/react-datepicker.css'
-import DatePicker,{DatePickerProps}  from 'react-datepicker';
+import DatePicker from 'react-datepicker';
 
 
 interface Props{

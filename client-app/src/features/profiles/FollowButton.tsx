@@ -1,4 +1,5 @@
-import React, { SyntheticEvent } from 'react';
+//import React, 
+import { SyntheticEvent } from 'react';
 import { Profile } from '../../app/models/profile';
 import { observer } from 'mobx-react-lite';
 import { Button, Reveal } from 'semantic-ui-react';

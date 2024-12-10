@@ -1,8 +1,9 @@
-import React,{useState,SyntheticEvent} from 'react';
+//import React,
+//import {useState,SyntheticEvent} from 'react';
 import {Item,Button,Label,Segment,Icon} from 'semantic-ui-react';
 import {Link} from 'react-router-dom';
 import {Activity} from '../../../app/models/activity';
-import {useStore} from '../../../app/stores/store';
+//import {useStore} from '../../../app/stores/store';
 import {format} from 'date-fns';
 import ActivityListItemAttendee from './ActivityListItemAttendee';
 
@@ -11,14 +12,14 @@ interface Props{
 }
 
 export default function ActivityListItem({activity}:Props){
-    const {activityStore} = useStore();
-    const {deleteActivity,loading} =activityStore;
-    const [target,setTarget] = useState('');
+    //const {activityStore} = useStore();
+    //const {deleteActivity} =activityStore;
+    //const [setTarget] = useState('');
     
-    function handleActivityDelete(e:SyntheticEvent<HTMLButtonElement>,id:string){
+    /*function handleActivityDelete(e:SyntheticEvent<HTMLButtonElement>,id:string){
         setTarget(e.currentTarget.name);
         deleteActivity(id);
-    }
+    }*/
 
     return(
         <Segment.Group>

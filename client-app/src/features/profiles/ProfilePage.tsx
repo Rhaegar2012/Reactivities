@@ -35,6 +35,6 @@ export default observer(function ProfilePage(){
     )
 })
 
-function setActiveTab(arg0: number) {
+function setActiveTab(_arg0: number) {
     throw new Error("Function not implemented.")
 }
