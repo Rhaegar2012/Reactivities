@@ -7,7 +7,6 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Persistence;
-using SQLitePCL;
 using Application.Core;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;

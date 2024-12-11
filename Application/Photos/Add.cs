@@ -32,7 +32,9 @@ namespace Application.Photos
                 _userAccessor = userAccessor;
 
             }
-            public async Task<Result<Photo>> Handle(Command request, CancellationToken cancellationToken)
+#pragma warning disable CS8613 // Nullability of reference types in return type doesn't match implicitly implemented member.
+            public async Task<Result<Photo>?> Handle(Command request, CancellationToken cancellationToken)
+#pragma warning restore CS8613 // Nullability of reference types in return type doesn't match implicitly implemented member.
             {
                 var user = await _context.Users.Include(p=>p.Photos).FirstOrDefaultAsync(x=>x.UserName == _userAccessor.GetUserName());
                 if(user == null)

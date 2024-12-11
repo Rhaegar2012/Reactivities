@@ -30,7 +30,9 @@ namespace Application.Followers
 
             }
 
-            public async Task<Result<Unit>> Handle(Command request , CancellationToken cancellationToken)
+#pragma warning disable CS8613 // Nullability of reference types in return type doesn't match implicitly implemented member.
+            public async Task<Result<Unit>?> Handle(Command request , CancellationToken cancellationToken)
+#pragma warning restore CS8613 // Nullability of reference types in return type doesn't match implicitly implemented member.
             {
                 var observer = await _context.Users.FirstOrDefaultAsync(x=>x.UserName==_userAccessor.GetUserName());
 

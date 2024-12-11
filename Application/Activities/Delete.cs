@@ -20,7 +20,9 @@ namespace Application.Activities
                 _context = context;
             }
 
-            public async Task<Result<Unit>> Handle(Command request, CancellationToken cancellationToken)
+#pragma warning disable CS8613 // Nullability of reference types in return type doesn't match implicitly implemented member.
+            public async Task<Result<Unit>?> Handle(Command request, CancellationToken cancellationToken)
+#pragma warning restore CS8613 // Nullability of reference types in return type doesn't match implicitly implemented member.
             {
                 var activity = await _context.Activities.FindAsync(request.Id);
                 if(activity == null)

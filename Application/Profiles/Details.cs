@@ -14,7 +14,7 @@ namespace Application.Profiles
     {
         public class Query : IRequest<Result<Profile>>
         {
-            public string Username {get;set;}
+            public string? Username {get;set;}
         }
 
         public class Handler : IRequestHandler<Query, Result<Profile>>
@@ -29,7 +29,9 @@ namespace Application.Profiles
                 _userAcesssor=userAcesssor; 
 
             }
-            public async Task<Result<Profile>> Handle(Query request, CancellationToken cancellationToken)
+#pragma warning disable CS8613 // Nullability of reference types in return type doesn't match implicitly implemented member.
+            public async Task<Result<Profile>?> Handle(Query request, CancellationToken cancellationToken)
+#pragma warning restore CS8613 // Nullability of reference types in return type doesn't match implicitly implemented member.
             {
                 var user = await _context.Users
                                          .ProjectTo<Profile>(_mapper.ConfigurationProvider,new {currentUserName =_userAcesssor.GetUserName()})
